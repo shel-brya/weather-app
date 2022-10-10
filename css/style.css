@@ -12,9 +12,26 @@ ul {
   padding: 0;
 }
 
+.col-9 {
+  width: 75%;
+}
+
+.col-3 {
+  width: 25%;
+}
+
+.search-bar {
+  padding: 15px 20px;
+  display: inline-block;
+  font-size: 16px;
+  height: 50px;
+  line-height: 20px;
+}
+
 .search-button {
   padding: 15px 0;
   font-size: 16px;
+  height: 50px;
 }
 
 .percentage-table {
@@ -26,12 +43,6 @@ ul {
 table {
   border: 5px solid #000;
   margin: 250px 0px;
-}
-
-.search-bar {
-  padding: 15px 20px;
-  display: inline-block;
-  font-size: 16px;
 }
 
 .repo {
