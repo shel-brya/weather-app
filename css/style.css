@@ -5,11 +5,34 @@ h1 {
 
 h2 {
   padding: 10px 0 15px 0;
+  font-size: 55px;
+  line-height: 0.8;
 }
 
 ul {
   list-style: none;
   padding: 0;
+}
+
+.weather-border {
+  margin: 30px auto;
+  padding: 20px;
+  border: 1px solid #dadde1;
+  border-radius: 5px;
+}
+
+.weather-temperature img {
+  margin-right: 10px;
+  height: 64px;
+  width: 64px;
+}
+
+#farh {
+  text-decoration: none;
+}
+
+#celsius {
+  text-decoration: none;
 }
 
 .col-9 {
