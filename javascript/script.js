@@ -18,6 +18,8 @@ function showTemperature(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].main);
+
+  celsiusTemperature = Math.round(response.data.main.temp);
 }
 
 // display default city
@@ -71,26 +73,28 @@ let li = document.querySelector("#date");
 
 li.innerHTML = dateFormat(now);
 
-displayDefaultCity("Bloomington");
-
 // switch between celsius and farh -- I am not sure how to keep the ° when switching
-// let defaultTemp = document.querySelector("#temp-display");
-// defaultTemp.innerHTML = 76;
+let defaultTemp = document.querySelector("#temp-display");
+defaultTemp.innerHTML = 76;
 
-// function celsiusTemp(event) {
-//   event.preventDefault();
-//   let temp = document.querySelector("#temp-display");
-//   temp.innerHTML = 13;
-// }
+let celsiusTemperature = null;
 
-// function farhTemp(event) {
-//   event.preventDefault();
-//   let temp = document.querySelector("#temp-display");
-//   temp.innerHTML = 76;
-// }
+function celsiusTemp(event) {
+  event.preventDefault();
+  let temp = document.querySelector("#temp-display");
+  temp.innerHTML = celsiusTemperature;
+}
 
-// let cTemp = document.querySelector("#celsius");
-// cTemp.addEventListener("click", celsiusTemp);
+function farhTemp(event) {
+  event.preventDefault();
+  let temp = document.querySelector("#temp-display");
+  temp.innerHTML = Math.round((celsiusTemperature * 9) / 5 + 32);
+}
 
-// let fTemp = document.querySelector("#farh");
-// fTemp.addEventListener("click", farhTemp);
+let cTemp = document.querySelector("#celsius");
+cTemp.addEventListener("click", celsiusTemp);
+
+let fTemp = document.querySelector("#farh");
+fTemp.addEventListener("click", farhTemp);
+
+displayDefaultCity("Bloomington");
