@@ -62,9 +62,28 @@ ul {
   margin: 20px 0px 20px 0px;
 }
 
-table {
-  border: 5px solid #000;
-  margin: 250px 0px;
+.weekly-border {
+  margin: 30px auto;
+  padding: 20px;
+  border: 1px solid #dadde1;
+  border-radius: 5px;
+}
+
+.weekly-forecast {
+  text-align: center;
+}
+
+.weekly-forecast-date {
+  font-size: 16px;
+  opacity: 0.6;
+}
+
+.weekly-low {
+  opacity: 0.6;
+}
+
+.weekly-forecast-temp {
+  font-size: 14px;
 }
 
 .repo {
