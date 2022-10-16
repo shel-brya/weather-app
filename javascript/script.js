@@ -27,7 +27,7 @@ function showTemperature(response) {
 // display default city
 function displayDefaultCity(city) {
   let apiKey = "3c949ba49d38be2487ee278e0d2d4059";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(showTemperature);
 }
 
@@ -111,7 +111,7 @@ function displayForecast(response) {
 
 function getForecast(coordinates) {
   let apiKey = "3c949ba49d38be2487ee278e0d2d4059";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(displayForecast);
 }
 
@@ -121,29 +121,5 @@ let now = new Date();
 let li = document.querySelector("#date");
 
 li.innerHTML = dateFormat(now);
-
-// switch between celsius and farh
-let defaultTemp = document.querySelector("#temp-display");
-defaultTemp.innerHTML = 76;
-
-let celsiusTemperature = null;
-
-function celsiusTemp(event) {
-  event.preventDefault();
-  let temp = document.querySelector("#temp-display");
-  temp.innerHTML = celsiusTemperature;
-}
-
-function farhTemp(event) {
-  event.preventDefault();
-  let temp = document.querySelector("#temp-display");
-  temp.innerHTML = Math.round((celsiusTemperature * 9) / 5 + 32);
-}
-
-let cTemp = document.querySelector("#celsius");
-cTemp.addEventListener("click", celsiusTemp);
-
-let fTemp = document.querySelector("#farh");
-fTemp.addEventListener("click", farhTemp);
 
 displayDefaultCity("Bloomington");
