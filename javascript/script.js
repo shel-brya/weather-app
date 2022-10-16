@@ -20,6 +20,8 @@ function showTemperature(response) {
   iconElement.setAttribute("alt", response.data.weather[0].main);
 
   celsiusTemperature = Math.round(response.data.main.temp);
+
+  getForecast(response.data.coord);
 }
 
 // display default city
@@ -66,29 +68,45 @@ function dateFormat(date) {
   return `${day} ${hours}:${mins}`;
 }
 
+function formatForecastDate(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
 //display weekly forecast
-function displayForecast() {
-  let forecast = document.querySelector("#forecast");
+function displayForecast(response) {
+  let forecast = response.data.daily;
+  let forecastElement = document.querySelector("#forecast");
+
   let forecastHTML = `<div class="row">`;
 
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `        
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `        
   <div class="col-2">
-    <div class="weekly-forecast-date">${day}</div>
+    <div class="weekly-forecast-date">${formatForecastDate(
+      forecastDay.dt
+    )}</div>
+    <img src="http://openweathermap.org/img/wn/${
+      forecastDay.weather[0].icon
+    }@2x.png" width='42'/>
     <div class="weekly-forecast-temp">
-      <span class="weekly-high">72°</span>
-      <span class="weekly-low">45°</span>
+      <span class="weekly-high">${Math.round(forecastDay.temp.max)}°</span>
+      <span class="weekly-low">${Math.round(forecastDay.temp.min)}°</span>
     </div>
   </div>
 `;
+    }
   });
 
   forecastHTML = forecastHTML + `</div`;
 
-  forecast.innerHTML = forecastHTML;
+  forecastElement.innerHTML = forecastHTML;
 }
 
 function getForecast(coordinates) {
