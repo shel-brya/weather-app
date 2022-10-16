@@ -20,6 +20,8 @@ function showTemperature(response) {
   iconElement.setAttribute("alt", response.data.weather[0].main);
 
   celsiusTemperature = Math.round(response.data.main.temp);
+
+  displayForecast();
 }
 
 // display default city
@@ -66,6 +68,31 @@ function dateFormat(date) {
   return `${day} ${hours}:${mins}`;
 }
 
+//display weekly forecast
+function displayForecast() {
+  let forecast = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `        
+  <div class="col-2">
+    <div class="weekly-forecast-date">${day}</div>
+    <div class="weekly-forecast-temp">
+      <span class="weekly-high">72°</span>
+      <span class="weekly-low">45°</span>
+    </div>
+  </div>
+`;
+  });
+
+  forecastHTML = forecastHTML + `</div`;
+
+  forecast.innerHTML = forecastHTML;
+}
+
 // display current date and time
 let now = new Date();
 
@@ -73,7 +100,7 @@ let li = document.querySelector("#date");
 
 li.innerHTML = dateFormat(now);
 
-// switch between celsius and farh -- I am not sure how to keep the ° when switching
+// switch between celsius and farh
 let defaultTemp = document.querySelector("#temp-display");
 defaultTemp.innerHTML = 76;
 
