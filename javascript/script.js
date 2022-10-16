@@ -20,8 +20,6 @@ function showTemperature(response) {
   iconElement.setAttribute("alt", response.data.weather[0].main);
 
   celsiusTemperature = Math.round(response.data.main.temp);
-
-  displayForecast();
 }
 
 // display default city
@@ -91,6 +89,12 @@ function displayForecast() {
   forecastHTML = forecastHTML + `</div`;
 
   forecast.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  let apiKey = "3c949ba49d38be2487ee278e0d2d4059";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
 }
 
 // display current date and time
