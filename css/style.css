@@ -99,9 +99,14 @@ ul {
   font-size: 14px;
 }
 
-.repo {
-  display: block;
-  margin: 0 auto;
+a {
+  color: #596e79;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #719192;
+  text-decoration: underline;
 }
 
 .even-space {
