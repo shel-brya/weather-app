@@ -22,9 +22,7 @@
         <div class="d-flex weather-temperature">
           <img src="" alt="" id="icon" />
           <h2 id="temp-display"></h2>
-          <div id="temperature">
-            °F
-          </div>
+          <div id="temperature">°F</div>
         </div>
         <ul>
           <li id="date"></li>
@@ -55,26 +53,24 @@
         </form>
 
         <div class="percentage-table">
-          <div class="row">
-            <div class="col-3">Precipitation</div>
-            <div class="col-3">Humidity</div>
-            <div class="col-3">Wind</div>
+          <div class="row even-space">
+            <div class="col-2">Humidity</div>
+            <div class="col-2">Feels like</div>
+            <div class="col-2">Wind</div>
           </div>
-          <div class="row">
-            <div class="col-3" id="precip">0%</div>
-            <div class="col-3"><span id="humidity">0</span>%</div>
-            <div class="col-3"><span id="wind">0</span> m/h</div>
-          </div>
+          <div class="row even-space">
+          <div class="col-2"><span id="humidity"></span>%</div>
+          <div class="col-2"><span id="feels-like"></span>°F</div>
+          <div class="col-2"><span id="wind"></span> m/h</div>
         </div>
       </div>
-      <!-- weekly forecast with highs and lows -->
-      <div class="weekly-border">
-      <div class="weekly-forecast" id="forecast">
-
-      </div>
+    </div>
+    <!-- weekly forecast with highs and lows -->
+    <div class="weekly-border">
+      <div class="weekly-forecast" id="forecast"></div>
     </div>
     <small class="repo">
-      Github repository
+      Open Source Repository
       <a href="https://github.com/shel-brya" target="_blank">here</a>
     </small>
 

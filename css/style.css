@@ -9,6 +9,14 @@ h2 {
   line-height: 0.8;
 }
 
+body {
+  color: #f0ece2;
+}
+
+.container {
+  color: #596e79;
+}
+
 ul {
   list-style: none;
   padding: 0;
@@ -19,6 +27,7 @@ ul {
   padding: 20px;
   border: 1px solid #dadde1;
   border-radius: 5px;
+  background-color: #dfd3c3;
 }
 
 .weather-temperature img {
@@ -54,12 +63,15 @@ ul {
 #search-button {
   padding: 15px 15px;
   font-size: 16px;
+  background-color: #596e79;
+  border: none;
 }
 
 .percentage-table {
-  border: 2px solid #000;
+  border: 1px solid #dadde1;
   padding: 5px 5px;
   margin: 20px 0px 20px 0px;
+  background-color: #c7b198;
 }
 
 .weekly-border {
@@ -67,6 +79,7 @@ ul {
   padding: 20px;
   border: 1px solid #dadde1;
   border-radius: 5px;
+  background-color: #dfd3c3;
 }
 
 .weekly-forecast {
@@ -89,4 +102,9 @@ ul {
 .repo {
   display: block;
   margin: 0 auto;
+}
+
+.even-space {
+  display: flex;
+  justify-content: space-evenly;
 }

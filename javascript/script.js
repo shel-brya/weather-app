@@ -1,11 +1,15 @@
 // ----- display searched city and current weather -------
 
 function showTemperature(response) {
+  console.log(response);
   document.querySelector("#city").innerHTML = response.data.name;
   document.querySelector("#temp-display").innerHTML = Math.round(
     response.data.main.temp
   );
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
+  document.querySelector("#feels-like").innerHTML = Math.round(
+    response.data.main.feels_like
+  );
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
   );
